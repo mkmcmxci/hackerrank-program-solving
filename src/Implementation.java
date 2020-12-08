@@ -423,4 +423,217 @@ public class Implementation {
 
     }
 
+    //11
+
+    static int sockMerchant(int n, int[] ar) {
+
+        if(n == ar.length) {
+            Set<Integer> arList = new HashSet<>();
+
+            for(int a : ar) {
+
+                arList.add(a);
+            }
+
+            int tSum = 0;
+
+            for(int r : arList) {
+
+                int sum = 0;
+
+                for(int s : ar) {
+
+                    if(r == s) {
+
+                        sum++;
+                    }
+
+                }
+
+                if((sum - 1) % 2 == 0) {
+
+                    tSum += (sum - 1) / 2;
+
+                }
+
+                else if((sum % 2) == 0) {
+
+                    tSum += sum / 2;
+                }
+
+            }
+
+            return tSum;
+        }
+
+        else {
+
+            return 0;
+        }
+
+    }
+
+    //12
+
+    static int pageCount(int n, int p) {
+
+        int countFront = 0;
+        int countEnd = 0;
+
+        List<Integer> minMax = new ArrayList<>();
+        boolean frontOfBook = true;
+
+        if(frontOfBook) {
+
+            if(p % 2 == 0) {
+
+                countFront = p / 2;
+
+            }
+
+            else {
+
+                countFront = (p - 1) / 2;
+            }
+
+        }
+        minMax.add(countFront);
+
+        frontOfBook = false;
+
+        if(!frontOfBook) {
+
+            if(n % 2 == 0) {
+
+                if(p % 2 == 0) {
+
+                    countEnd = (n - p) / 2;
+
+                }
+
+                else {
+
+                    countEnd = (n - p + 1) / 2;
+
+                }
+
+            }
+
+            else {
+
+                if(p % 2 == 0) {
+
+                    countEnd = (n - 1 - p) / 2;
+
+                }
+
+                else {
+
+                    countEnd = (n - p) / 2;
+
+                }
+
+            }
+
+        }
+        minMax.add(countEnd);
+
+        return Collections.min(minMax);
+
+    }
+
+    //13
+
+    public static int countingValleys(int steps, String path) {
+
+        if(steps != path.length()) {
+
+            return 0;
+        }
+
+        else {
+
+            int sum = 0;
+            int valley = 0;
+
+            for(int p = 0; p < path.length(); p++) {
+
+                if(path.charAt(p) == 'U') {
+
+                    sum++;
+
+                }
+
+                else {
+
+                    sum--;
+
+                }
+
+                if(path.charAt(p) == 'U' && sum == 0) {
+                    valley++;
+
+                }
+
+            }
+
+            return valley;
+        }
+
+    }
+
+    //14
+
+    static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+
+        List<Integer> list = new ArrayList<>();
+
+        for(int k = 0; k < keyboards.length; k++) {
+
+            for(int d = 0; d < drives.length; d++) {
+
+                if((keyboards[k] + drives[d]) <= b) {
+
+                    int maxPrice = keyboards[k] + drives[d];
+                    list.add(maxPrice);
+
+                }
+
+            }
+
+        }
+
+        if(list.size() == 0) {
+
+            return -1;
+        }
+        else {
+
+            return Collections.max(list);
+        }
+
+    }
+
+    //15
+
+    static String catAndMouse(int x, int y, int z) {
+
+        int catADistance = Math.abs(x - z);
+        int catBDistance = Math.abs(y - z);
+
+        if(catADistance > catBDistance) {
+
+            return "Cat B";
+        }
+        else if(catADistance < catBDistance) {
+
+            return "Cat A";
+        }
+        else {
+            return "Mouse C";
+
+        }
+
+    }
+
 }
