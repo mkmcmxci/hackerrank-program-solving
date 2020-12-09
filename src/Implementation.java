@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Implementation {
@@ -633,6 +635,91 @@ public class Implementation {
             return "Mouse C";
 
         }
+
+    }
+
+    //16
+
+    static int hurdleRace(int k, int[] height) {
+
+        int max = 0;
+
+        for(int h : height) {
+
+            if(h > max) {
+
+                max = h;
+            }
+
+        }
+
+        if(k < max) {
+
+            return max - k;
+        }
+        else {
+
+            return 0;
+        }
+
+    }
+
+    //17
+
+    static String angryProfessor(int k, int[] a) {
+
+        int attendee = 0;
+
+        for(int i : a) {
+
+            if(i <= 0) {
+
+                attendee++;
+
+            }
+
+        }
+
+        if(attendee < k) {
+
+            return "YES";
+        }
+
+        else {
+
+            return "NO";
+
+        }
+
+    }
+
+    //18
+
+    static int beautifulDays(int i, int j, int k) {
+
+        int sum = 0;
+
+        for(int o = i; i <= j; i++) {
+
+            String res = String.valueOf(i);
+            String ress = "";
+
+            for(int u = 1; u < res.length() + 1; u++) {
+
+                ress += res.charAt(res.length() - u);
+
+            }
+
+            int resInt = Integer.parseInt(ress);
+
+            if(Math.abs(i - resInt) % k == 0) {
+
+                sum++;
+            }
+
+        }
+
+        return sum;
 
     }
 

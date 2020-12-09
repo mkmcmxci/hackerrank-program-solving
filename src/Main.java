@@ -1,17 +1,17 @@
+import java.awt.desktop.SystemSleepEvent;
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
 
-
-    public static void main(String[] args){
-
-        int[] keyboards = {40,50,60};
-        int[] drivers = {5,8,12};
+    public static void main(String[] args) {
 
 
-        System.out.println(Implementation.getMoneySpent(keyboards,drivers,60));
 
+        System.out.println(Implementation.beautifulDays(2000,2003,6));
 
     }
+
 }
