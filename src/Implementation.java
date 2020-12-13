@@ -723,4 +723,71 @@ public class Implementation {
 
     }
 
+    //19
+
+    static int utopianTree(int n) {
+
+        int height = 1;
+
+        if(n == 0) {
+
+            return 1;
+        }
+
+        else {
+
+        }
+        for(int i = 1; i < n + 1; i++) {
+
+            if(i % 2 == 0) {
+
+                height++;
+            }
+
+            else {
+
+                height *= 2;
+
+            }
+
+        }
+
+        return height;
+
+    }
+
+    //20
+
+    static int viralAdvertising(int n) {
+
+        int numberOfShared = 5;
+        int cumulLike = 0;
+
+        for(int i = 1; i < n + 1; i++) {
+
+            int numberOfLiked = (int) Math.floor(numberOfShared / 2);
+            numberOfShared = numberOfLiked * 3;
+            cumulLike += numberOfLiked;
+
+        }
+
+        return cumulLike;
+
+    }
+
+    //21
+
+    static int saveThePrisoner(int n, int m, int s) {
+
+        int result = (s + (m - 1)) % n;
+
+        if(result == 0) {
+            return n;
+        }
+        else {
+            return result;
+        }
+
+    }
+
 }
