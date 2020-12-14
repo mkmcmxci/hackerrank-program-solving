@@ -790,4 +790,113 @@ public class Implementation {
 
     }
 
+    //22
+
+    static int findDigits(int n) {
+
+        String nS = String.valueOf(n);
+
+        int sum = 0;
+
+        for(char c : nS.toCharArray()) {
+
+            if(Integer.parseInt(String.valueOf(c)) == 0) {
+
+                continue;
+            }
+
+            else {
+                if(n % Integer.parseInt(String.valueOf(c)) == 0) {
+
+                    sum++;
+
+                }
+
+            }
+
+        }
+
+        return sum;
+
+    }
+
+    //23
+
+    static int designerPdfViewer(int[] h, String word) {
+
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+        Map<String, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < h.length; i++) {
+
+            map.put(String.valueOf(alphabet.charAt(i)), h[i]);
+        }
+
+        int biggest = 0;
+
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+
+            for(char w : word.toCharArray()) {
+
+                if(String.valueOf(w)
+                         .equals(entry.getKey())) {
+
+                    if(entry.getValue() > biggest) {
+                        biggest = entry.getValue();
+                    }
+
+                }
+
+            }
+
+        }
+
+        return biggest * word.length();
+
+    }
+
+    //24
+
+    static int minimumDistances(int[] a) {
+
+        int distance = a.length;
+
+        for(int i = 0; i < a.length; i++) {
+
+            for(int j = 0; j < a.length; j++) {
+
+                if(i == j) {
+
+                    continue;
+
+                }
+                else {
+
+                    if(a[i] == a[j]) {
+
+                        if(Math.abs(i - j) < distance) {
+
+                            distance = Math.abs(i - j);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if(distance == a.length) {
+
+            return -1;
+        }
+        else {
+
+            return distance;
+        }
+
+    }
+
 }

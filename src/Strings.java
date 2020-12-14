@@ -1,3 +1,5 @@
+import javax.crypto.MacSpi;
+import java.sql.SQLSyntaxErrorException;
 import java.util.*;
 
 public class Strings {
@@ -336,5 +338,208 @@ public class Strings {
         }
 
     }
+
+    //9
+
+    static int anagram(String s) {
+
+        int count = 0;
+
+        if(s.length() % 2 != 0) {
+
+            return -1;
+        }
+
+        else {
+
+            String first = s.substring(0, s.length() / 2);
+            String second = s.substring(s.length() / 2, s.length());
+            char[] secChar = first.toCharArray();
+            for(char c : secChar) {
+                int index = second.indexOf(c);
+                if(index == -1) {
+                    count++;
+                }
+                else {
+                    second = second.substring(0, index) + second.substring(index + 1);
+                }
+
+            }
+
+        }
+
+        return count;
+    }
+
+    //10
+
+    static String pangrams(String s) {
+
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+        s = s.replace(" ", "");
+
+        String[] sList = s.split("");
+
+        String[] alphabetList = alphabet.split("");
+
+        int sum = 0;
+
+        List<String> alpList = Arrays.asList(alphabetList);
+        List<String> ssList = Arrays.asList(sList);
+
+        String newString = "";
+
+        for(String a : ssList) {
+
+            newString += a.toLowerCase();
+
+        }
+
+        for(String aa : alpList) {
+
+            if(!newString.contains(aa)) {
+
+                sum++;
+            }
+        }
+
+        if(sum == 0) {
+
+            return "pangram";
+        }
+
+        else {
+
+            return "not pangram";
+        }
+
+    }
+
+    //11
+
+    static int theLoveLetterMystery(String s) {
+        String sSecondHalf = "";
+        String firstHalf = s.substring(0, s.length() / 2);
+        String secondHalf;
+
+        if(s.length() % 2 == 0) {
+
+            secondHalf = s.substring(s.length() / 2);
+            for(int i = 0; i < secondHalf.length(); i++) {
+
+                sSecondHalf += secondHalf.charAt(secondHalf.length() - i - 1);
+
+            }
+
+        }
+
+        else {
+
+            secondHalf = s.substring(s.length() / 2 + 1);
+            for(int i = 0; i < secondHalf.length(); i++) {
+
+                sSecondHalf += secondHalf.charAt(secondHalf.length() - i - 1);
+
+            }
+
+        }
+
+        int sum = 0;
+
+        for(int i = 0; i < firstHalf.length(); i++) {
+
+            sum += Math.abs(firstHalf.charAt(i) - sSecondHalf.charAt(i));
+
+        }
+
+        return sum;
+    }
+
+    //12
+
+    static int gemstones(String[] arr) {
+
+        List<String> list = new ArrayList<>(Arrays.asList(arr));
+
+        String biggest = "";
+
+        for(String b : arr) {
+
+            if(b.length() >= biggest.length()) {
+
+                biggest = b;
+
+            }
+
+        }
+
+        Set<String> bigListSet = new HashSet<>(new ArrayList<>(Arrays.asList(biggest.split(""))));
+
+        int bigSum = 0;
+
+        for(String c : bigListSet) {
+
+            int sum = 0;
+
+            for(int i = 0; i < list.size(); i++) {
+
+                if(list.get(i)
+                       .contains(String.valueOf(c))) {
+
+                    sum++;
+
+                }
+
+            }
+
+            if(sum == list.size()) {
+
+                bigSum++;
+            }
+        }
+
+        return bigSum;
+    }
+
+    //13
+
+    static String hackerrankInString(String s) {
+
+        String newS = "";
+        String hackerrank = "hackerrank";
+
+        outer:
+        for(int i = 0; i < hackerrank.length(); i++) {
+
+            for(int j = 0; j < s.length(); j++) {
+
+                if(hackerrank.charAt(i) == s.charAt(j)) {
+
+                    newS += s.charAt(j);
+
+                    s = s.substring(j + 1);
+
+                    continue outer;
+
+                }
+
+            }
+
+        }
+
+        if(newS.equals(hackerrank)) {
+
+            return "YES";
+        }
+
+        else {
+
+            return "NO";
+        }
+
+    }
+
+
 
 }
