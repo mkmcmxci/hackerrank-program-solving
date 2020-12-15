@@ -540,6 +540,40 @@ public class Strings {
 
     }
 
+    //14
 
+    static String twoStrings(String s1, String s2) {
+
+        boolean result = false;
+        String sub = "";
+
+        outer:
+        for(int i = 0; i < s1.length(); i++) {
+
+            for(int j = i; j < s1.length(); j++) {
+
+                sub = s1.substring(i, j + 1);
+
+                if(s2.contains(sub)) {
+
+                    result = true;
+                    break outer;
+                }
+
+            }
+
+        }
+
+        if(result) {
+
+            return "YES";
+        }
+
+        else {
+
+            return "NO";
+        }
+
+    }
 
 }

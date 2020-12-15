@@ -899,4 +899,34 @@ public class Implementation {
 
     }
 
+    //25
+
+    static int beautifulTriplets(int d, int[] arr) {
+
+        List<Integer> arrList2 = new ArrayList<>();
+
+        for(int g : arr) {
+
+            arrList2.add(g);
+
+        }
+
+        int sum = 0;
+
+        for(int k = 0; k < arrList2.size(); k++) {
+
+            if(arrList2.subList(k + 1, arrList2.size())
+                       .contains(arrList2.get(k) + d) && arrList2.subList(k + 1, arrList2.size())
+                                                                 .contains(arrList2.get(k) + d * 2)) {
+
+                sum++;
+
+            }
+
+        }
+
+        return sum;
+
+    }
+
 }
