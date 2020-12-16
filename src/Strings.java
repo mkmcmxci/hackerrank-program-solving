@@ -576,4 +576,73 @@ public class Strings {
 
     }
 
+    //15
+
+    static String gameOfThrones(String s) {
+
+        List<String> list = new ArrayList<>(Arrays.asList(s.split("")));
+
+        Set<String> setL = new HashSet<>(list);
+
+        List<String> listL = new ArrayList<>(setL);
+
+        int sumC = 0;
+        int sumT = 0;
+
+        if(list.size() % 2 == 0) {
+
+            for(int i = 0; i < setL.size(); i++) {
+
+                int freq = Collections.frequency(list, listL.get(i));
+
+                if(freq % 2 == 0) {
+
+                    sumC++;
+
+                }
+            }
+
+            if(sumC == setL.size()) {
+
+                return "YES";
+            }
+            else {
+                return "NO";
+            }
+
+        }
+
+        else {
+
+            for(int i = 0; i < setL.size(); i++) {
+
+                int freq = Collections.frequency(list, listL.get(i));
+
+                if(freq % 2 == 0) {
+
+                    sumT++;
+
+                }
+            }
+
+            if(sumT + 1 == setL.size()) {
+
+                return "YES";
+            }
+
+            else {
+                return "NO";
+            }
+
+        }
+
+    }
+
+    static int makingAnagrams(String s1, String s2) {
+
+
+        return 0;
+    }
+
+
 }
