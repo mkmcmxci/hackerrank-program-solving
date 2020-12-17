@@ -973,4 +973,52 @@ public class Implementation {
 
     }
 
+    //27
+
+    static long repeatedString(String s, long n) {
+
+        if(n % s.length() == 0) {
+
+            long blm = n / s.length();
+
+            List<String> list = new ArrayList<>(Arrays.asList(s.split("")));
+
+            int freq = Collections.frequency(list, "a");
+
+            return blm * freq;
+
+        }
+
+        else {
+
+            int add = 0;
+
+            long blm = n % s.length();
+
+            long k = n - blm;
+
+            long h = k / s.length();
+
+            for(int i = 0; i < blm; i++) {
+
+                if(String.valueOf(s.charAt(i))
+                         .equals("a")) {
+
+                    add++;
+
+                }
+
+            }
+
+            List<String> list = new ArrayList<>(Arrays.asList(s.split("")));
+
+            int freq = Collections.frequency(list, "a");
+
+            long s1 = h * freq;
+
+            return s1 + add;
+        }
+
+    }
+
 }
