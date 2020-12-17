@@ -638,11 +638,28 @@ public class Strings {
 
     }
 
-    static int makingAnagrams(String s1, String s2) {
+    //16
 
+    static int beautifulBinaryString(String b) {
 
-        return 0;
+        String bin = "010";
+
+        int sum = 0;
+
+        for(int i = 3; i < b.length() + 1; i++) {
+
+            if(b.substring(i - 3, i)
+                .equals(bin)) {
+
+                sum++;
+                i = i + 2;
+
+            }
+
+        }
+
+        return sum;
+
     }
-
 
 }

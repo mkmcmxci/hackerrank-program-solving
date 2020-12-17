@@ -1,3 +1,4 @@
+import javax.annotation.processing.SupportedSourceVersion;
 import java.io.FileOutputStream;
 import java.math.BigInteger;
 import java.util.*;
@@ -926,6 +927,49 @@ public class Implementation {
         }
 
         return sum;
+
+    }
+
+    //26
+
+    static int[] permutationEquation(int[] p) {
+
+        int size = p.length;
+
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = 1; i < size + 1; i++) {
+
+            list.add(i);
+        }
+
+        List<Integer> list2 = new ArrayList<>();
+
+        for(int pp : p) {
+
+            list2.add(pp);
+        }
+
+        List<Integer> list3 = new ArrayList<>();
+
+        for(int i = 1; i < list2.size() + 1; i++) {
+
+            int x = list2.indexOf(i) + 1;
+
+            int y = list2.indexOf(x) + 1;
+
+            list3.add(y);
+
+        }
+
+        int[] arr = new int[list3.size()];
+
+        for(int l = 0; l < list3.size(); l++) {
+
+            arr[l] = list3.get(l);
+        }
+
+        return arr;
 
     }
 
